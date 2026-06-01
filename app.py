@@ -1,9 +1,10 @@
-import os, subprocess, json, openai
+import os, subprocess, json
+from openai import OpenAI
 from flask import Flask, request, send_from_directory
 from pathlib import Path
 
 app = Flask(__name__)
-openai.api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 PROJECT_DIR = Path("sandbox")
 PROJECT_DIR.mkdir(exist_ok=True)
 
